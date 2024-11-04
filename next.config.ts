@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['raw.githubusercontent.com']
+  }
 };
+export default nextConfig;
 // next.config.js
 // module.exports = {
 //   async rewrites() {
@@ -15,4 +18,3 @@ const nextConfig: NextConfig = {
 //   },
 // };
 
-export default nextConfig;

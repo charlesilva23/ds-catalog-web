@@ -1,28 +1,38 @@
 'use client'
 
-import { IProductsRecordDTO, IProductsResponseDTO } from "@/utils/products"
+import { ICategoriesDTO, IProductsRecordDTO } from "@/utils/products"
 import { useEffect, useState } from "react"
-import { getProducts } from "@/services/products.service"
+import { getCategories, getProducts } from "@/services/products.service"
 import Card from "../components/cards/Cards"
+import Image from "next/image"
 
 export default function Catalogo() {
   const [products, setProducts] = useState<IProductsRecordDTO[]>([])
+  const [categories, setCategories] = useState<ICategoriesDTO[]>([])
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await getProducts()
         setProducts(response.content)
-        console.log(response.content)
-        // const response = await axios.get("/api/products")
-        // setProducts(response.data.content)
-        // console.log(response.data.content)
       } catch (error) {
-        console.error('Erro ao buscar produtos:', error)
+        console.error('Erro:', error)
       }
     }
 
+    const fetchCategories = async () => {
+      try {
+        const response = await getCategories()
+        console.log(response.content)
+        setCategories(response.content)
+      } catch (error) {
+        console.error("erro:", error)
+      }
+    }
+
+
     fetchProducts()
+    fetchCategories()
   }, [])
 
   return (
@@ -34,52 +44,29 @@ export default function Catalogo() {
             <input type="text" placeholder="Nome do produto" className="ml-4 w-5/12 border-b-2 font-thin" />
             <select name="categoria" id="categoria" className="w-1/3 h-9 bg-white text-brand-gray border-b-2 font-thin">
               <option value="" disabled selected>Categoria</option>
-              <option value="1">teste</option>
-              <option value="2">teste</option>
+              {categories?.map((categorie) => (
+                <option value={categorie.id} key={categorie.id}>{categorie.name}</option>
+              ))}
             </select>
             <button className="p-1 h-10 px-8 border border-brand-gray rounded-xl text-brand-gray text-sm text-nowrap">LIMPAR FILTRO</button>
           </div>
         </div>
         {products?.map((product) => (
           <Card variant="catalog" key={product.id}>
-            <h1>{product.name}</h1>
-            <p>Preço: {product.price}</p>
+            <div className="w-full flex justify-center py-4">
+              <Image src={product.imgUrl} alt={product.imgUrl} width={120} height={120} /><br />
+            </div>
+            <hr />
+            <div className="flex px-4 mt-4">
+              <h1>{product.name}</h1>
+            </div>
+            <div className="flex items-start justify-start px-4">
+              <span className="text-xs text-brand-gray w-5 mt-1">R$</span>
+              <label className="text-3xl text-brand-blue">{product.price}</label>
+            </div>
           </Card>
         ))}
-
       </div>
     </div>
   )
 }
-{/* <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card> */}
-
-
-{/* <div className="flex justify-center h-screen">
-      <div className="flex flex-wrap w-full items-start justify-center py-10"> */}
-
-
-{/* <ul>
-        {products?.map((data) => (
-          <li key={data.id}>
-            Nome: {data.name}<br />
-            Preço: {data.price}<br />
-          </li>
-        ))}
-      </ul> */}

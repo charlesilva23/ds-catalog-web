@@ -5,6 +5,10 @@ export interface ICategoriesDTO {
   name: string
 }
 
+export interface ICategoriesResponseDTO {
+  content: ICategoriesDTO[]
+}
+
 export interface IProductsRecordDTO {
   id: number,
   name: string,
