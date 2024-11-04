@@ -12,11 +12,18 @@ export interface IProductsRecordDTO {
   price: number,
   imgUrl: string,
   date: Date,
-  categories: 
-    {
-      id: number,
-      name: string
-    }
+  categories: ICategoriesDTO[]
+}
+
+export interface IProductsResponseDTO {
+  content: IProductsRecordDTO[],
+  totalElements: number,
+  totalPages: number,
+  size: number,
+  number: number,
+  first: number,
+  last: number,
+  empty: boolean
 }
 
 

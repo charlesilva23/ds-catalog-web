@@ -1,6 +1,6 @@
 'use client'
-// import axios from "axios"
-import { IProductsRecordDTO } from "@/utils/products"
+
+import { IProductsRecordDTO, IProductsResponseDTO } from "@/utils/products"
 import { useEffect, useState } from "react"
 import { getProducts } from "@/services/products.service"
 import Card from "../components/cards/Cards"
@@ -12,8 +12,8 @@ export default function Catalogo() {
     const fetchProducts = async () => {
       try {
         const response = await getProducts()
-        setProducts(response.data)
-        console.log(response.data)
+        setProducts(response.content)
+        console.log(response.content)
         // const response = await axios.get("/api/products")
         // setProducts(response.data.content)
         // console.log(response.data.content)
@@ -40,47 +40,46 @@ export default function Catalogo() {
             <button className="p-1 h-10 px-8 border border-brand-gray rounded-xl text-brand-gray text-sm text-nowrap">LIMPAR FILTRO</button>
           </div>
         </div>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-        <Card variant="catalog">
-
-        </Card>
-      </div>
-
-
-      {/* <div className="flex justify-center h-screen">
-      <div className="flex flex-wrap w-full items-start justify-center py-10"> */}
-
-
-      {/* <ul>
-        {products?.map((data) => (
-          <li key={data.id}>
-            ID: {data.id}<br />
-            Nome: {data.name}<br />
-            Descrição: {data.description}<br />
-            Preço: {data.price}<br />
-            Data de Criação: {new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(data.date))}<br />
-            Categoria ID: {data.categories.id}<br />
-            Categoria Nome: {data.categories.name}<br />
-          </li>
+        {products?.map((product) => (
+          <Card variant="catalog" key={product.id}>
+            <h1>{product.name}</h1>
+            <p>Preço: {product.price}</p>
+          </Card>
         ))}
-      </ul> */}
+
+      </div>
     </div>
   )
 }
+{/* <Card variant="catalog">
+
+        </Card>
+        <Card variant="catalog">
+
+        </Card>
+        <Card variant="catalog">
+
+        </Card>
+        <Card variant="catalog">
+
+        </Card>
+        <Card variant="catalog">
+
+        </Card>
+        <Card variant="catalog">
+
+        </Card> */}
+
+
+{/* <div className="flex justify-center h-screen">
+      <div className="flex flex-wrap w-full items-start justify-center py-10"> */}
+
+
+{/* <ul>
+        {products?.map((data) => (
+          <li key={data.id}>
+            Nome: {data.name}<br />
+            Preço: {data.price}<br />
+          </li>
+        ))}
+      </ul> */}
