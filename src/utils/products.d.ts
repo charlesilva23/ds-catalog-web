@@ -1,13 +1,5 @@
+import { ICategoriesDTO } from "./categories"
 
-
-export interface ICategoriesDTO {
-  id: number,
-  name: string
-}
-
-export interface ICategoriesResponseDTO {
-  content: ICategoriesDTO[]
-}
 
 export interface IProductsRecordDTO {
   id: number,
