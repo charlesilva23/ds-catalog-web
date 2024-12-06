@@ -13,7 +13,7 @@ const cardTypes: Record<CardProps['variant'], string> = {
   wideCard: "w-10/12 h-1/3"
 }
 
-const Card: React.FC<CardProps> = ({ variant, children, className }) => {
+const Card = ({ variant, children, className }: CardProps) => {
   const cardClass = cardTypes[variant] || cardTypes['home']
 
   return (

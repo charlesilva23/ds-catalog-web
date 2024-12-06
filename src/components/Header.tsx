@@ -1,6 +1,6 @@
 'use client'
 
-import Link from "next/link";
+import Link from "next/link"
 
 export default function Header() {
     return (
@@ -14,11 +14,11 @@ export default function Header() {
                 <div className="flex flex-grow justify-center">
                     <div className="w-5/12 flex gap-20">
                         <Link href="/">HOME</Link>
-                        <Link href="/catalogo">CATÁLOGO</Link>
+                        <Link href="/catalog">CATÁLOGO</Link>
                         <Link href="/admin">ADMIN</Link>
                     </div>
                 </div>
             </nav>
         </div>
-    );
+    )
 }

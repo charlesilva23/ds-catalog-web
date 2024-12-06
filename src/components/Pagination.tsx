@@ -1,28 +1,28 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from 'next/image'
+import React from 'react'
 
 interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
+  currentPage: number,
+  totalPages: number,
+  onPageChange: (page: number) => void,
 }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const handlePrevious = () => {
     if (currentPage > 0) {
-      onPageChange(currentPage - 1);
+      onPageChange(currentPage - 1)
     }
-  };
+  }
 
   const handleNext = () => {
     if (currentPage < totalPages - 1) {
-      onPageChange(currentPage + 1);
+      onPageChange(currentPage + 1)
     }
-  };
+  }
 
   const handlePageClick = (page: number) => {
-    onPageChange(page);
-  };
+    onPageChange(page)
+  }
 
   return (
     <div className="flex items-center gap-2">
@@ -52,7 +52,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
         <Image src="/assets/arrowRightBlue.svg" alt="arrow" width={10} height={20} />
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

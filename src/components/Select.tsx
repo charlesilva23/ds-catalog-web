@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from 'react'
 
 interface SelectProps {
   description?: string,
@@ -7,7 +7,7 @@ interface SelectProps {
   onChange?: (value: string) => void,
 }
 
-const Select: React.FC<SelectProps> = ({ description, className, children, onChange }) => {
+const Select = ({ description, className, children, onChange }: SelectProps) => {
 
   return (
     <select
@@ -20,7 +20,7 @@ const Select: React.FC<SelectProps> = ({ description, className, children, onCha
       </option>
       {children}
     </select>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select

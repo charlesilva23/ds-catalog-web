@@ -7,7 +7,7 @@ interface SearchProps {
   onSearch: (value: string) => void
 }
 
-const Search: React.FC<SearchProps> = ({ placeholder, onSearch }) => {
+const Search = ({ placeholder, onSearch }: SearchProps) => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(e.target.value)
   }
