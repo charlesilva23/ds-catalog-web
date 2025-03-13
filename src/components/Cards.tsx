@@ -9,7 +9,7 @@ const cardTypes: Record<CardProps['variant'], string> = {
   home: "w-10/12 h-full",
   catalog: "w-[20%] h-2/5",
   mdCard: "w-8/12 h-full",
-  smCard: "w-5/12 h-full",
+  smCard: "w-5/12 h-[650px]",
   wideCard: "w-10/12 h-1/3"
 }
 
