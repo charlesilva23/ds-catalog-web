@@ -65,7 +65,7 @@ export default function Catalogo() {
       <div className="flex flex-wrap w-10/12 justify-center gap-6">
         <div className="p-8 w-11/12">
           <label htmlFor="catalogo" className="text-2xl">Catálogo de produtos</label>
-          <div className="flex mt-4 w-full h-16 shadow-card border rounded-md items-center gap-6">
+          <div className="flex mt-4 w-full h-16 shadow-card border border-gray-300 rounded-md items-center gap-6">
             <input
               type="text"
               placeholder="Nome do produto"
